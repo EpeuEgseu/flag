@@ -8,17 +8,14 @@
 (function(){
   'use strict';
     try{
-      if(!window.flag){
-        window.flag = flag;
-      }
-      var flag = flag || {} || new Object();
+      var _flag = flag || {} || new Object();
       var self = this;
-      var low_client = false;
       var flag = {
           info : info,
           success : 'success',
           warning : 'warning',
           error : 'error',
+          low_client : false,
           debug : function(){
             console.log(this);
               // require(flag.settings.lib+'_debug.js'); //디버깅할때만..strictly하게
@@ -29,7 +26,7 @@
       }
       if(window.navigator.appName == 'Microsoft Internet Explorer' && window.attachEvent && !window.addEventListener){//익스8까지만 서포트
         window.navigator.__defineGetter__('userAgent', function(){
-          low_client = true;
+          flag.low_client = true;
         });
       }
       // Object.defineProperty(exports, '__esModule', {
@@ -38,7 +35,9 @@
       // exports['default'] = flag = function(){
       //
       // }
-      console.log('test');
+      if(!window.flag){
+        window.flag = flag;
+      }
     }catch(e){
         switch (true){
             case (e instanceof EvalError):

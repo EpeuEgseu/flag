@@ -4,6 +4,17 @@
         <title>flag is Javascript library for non-blocking notifications. this plugin don't need to jquery library</title>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" /> <!--부트스트랩 CND이용-->
     </head>
+    <style type="text/css">
+    #_flag {position: fixed; z-index: 99999; background-blend-mode: initial;pointer-events: none}
+    #_flag>._flag_dom{width: 300px;padding:10px;color:#fff}
+    #_flag>._flag_dom.info{background-color: #9DD6FF;border: 1px solid #6D6D6D}
+    #_flag>._flag_dom.success{background-color: #2DCA39;border: 1px solid #6D6D6D}
+    #_flag>._flag_dom.warning{background-color: #CA2D3B;border: 1px solid #6D6D6D}
+    #_flag>._flag_dom.error{background-color: #617BDA;border: 1px solid #6D6D6D}
+
+    #_flag>p{letter-spacing: -1px;}
+    #_flag.flag_center{top: 50%; left: 50%; margin-left: -150px} /*width 값이 300이 default라*/
+    </style>
     <body>
         <div class="container">
          <div class="page-header">
@@ -19,10 +30,17 @@
            <p class="text-muted">2015.12.24</p>
          </div>
        </footer>
+       <div id="_flag" class="flag_center">
+         <div class="_flag_dom info">
+           <p>
+             here your message
+           </p>
+         </div>
+       </div>
         <script type="text/javascript" src="_flag.js"></script>
         <script type="text/javascript">
         //Test ground
-        flag.info();
+        info();
         </script>
     </body>
 </html>
