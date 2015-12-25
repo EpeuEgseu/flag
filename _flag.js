@@ -10,7 +10,6 @@
     try{
       var _flag = flag || {} || new Object();
       var self = this;
-      var low_client = false;
       var flag = {
           info : info,
           success : success,
@@ -56,7 +55,7 @@
       }
       if(window.navigator.appName == 'Microsoft Internet Explorer' && window.attachEvent && !window.addEventListener){//익스8까지만 서포트
         window.navigator.__defineGetter__('userAgent', function(){
-          low_client = true;
+          flag.low_client = true;
         });
       }
       // type, content, title
@@ -91,7 +90,9 @@
       // exports['default'] = flag = function(){
       //
       // }
-      console.log('test');
+      if(!window.flag){
+        window.flag = flag;
+      }
     }catch(e){
         switch (true){
             case (e instanceof EvalError):
