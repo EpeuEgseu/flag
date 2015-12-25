@@ -29,6 +29,7 @@
           low_client = true;
         });
       }
+
       if(!window.flag){
           window.flag = flag;
       }
