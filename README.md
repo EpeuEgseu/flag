@@ -2,7 +2,6 @@
 **flag is Javascript library for non-blocking notifications. this plugin don't need to jquery library** :airplane:
 
 Refer to the [Flag website](http://flag.hax0r.info) for examples. check it.
-coll
 
 ![simple flag pic](http://www.flagsforlessonline.com/images/message-flag-header.jpg)
 
