@@ -8,36 +8,77 @@
 (function(){
   'use strict';
     try{
-<<<<<<< HEAD
       var _flag = flag || {} || new Object();
-=======
-      var flag = flag || {} || new Object();
->>>>>>> 1e5d9b05db5acf212cb3f1747da725b3eca6aa18
       var self = this;
       var flag = {
           info : info,
-<<<<<<< HEAD
-          success : 'success',
-          warning : 'warning',
-          error : 'error',
-          low_client : false,
-=======
           success : success,
           warning : warning,
           error : error,
->>>>>>> 1e5d9b05db5acf212cb3f1747da725b3eca6aa18
           debug : function(){
             console.log(this);
               // require(flag.settings.lib+'_debug.js'); //디버깅할때만..strictly하게
-          }
+          },
+          low_client : false,
+          no:0
       }
-      function info(){
+      function initialize(position){
+        if(!flag.parentNode){
+            if(!position){
+                position='flag_top-right';
+            }
+            var _parent = document.createElement('div');
+            var attr = document.createAttribute('id');
+            attr.value = '_flag';
+            _parent.setAttributeNode(attr);
+            attr = document.createAttribute('class');
+            attr.value = position;
+            _parent.setAttributeNode(attr);
+            document.body.appendChild(_parent);
+            flag.parentNode = _parent;
+        }
+      }
+      initialize();
+
+      function info(content, title){
         console.log('is info');
+        createNode({type:'info', content:content, title:title, size:'is-middle'});
+      }
+      function success(){
+        console.log('is success');
+      }
+      function warning(){
+        console.log('is warning');
+      }
+      function error(){
+        console.log('is error');
       }
       if(window.navigator.appName == 'Microsoft Internet Explorer' && window.attachEvent && !window.addEventListener){//익스8까지만 서포트
         window.navigator.__defineGetter__('userAgent', function(){
           flag.low_client = true;
         });
+      }
+      // type, content, title
+      function createNode(option){
+        var div = document.createElement('div');
+        var attr = document.createAttribute('class');
+        attr.value = '_flag_dom '+option.type+' '+option.size;
+        div.setAttributeNode(attr);
+        attr = document.createAttribute('id');
+        attr.value = ++flag.no;
+        div.setAttributeNode(attr);
+
+        var title_tag = document.createElement('h3');
+        title_tag.appendChild(document.createTextNode(option.title));
+        div.appendChild(title_tag);
+        
+        var content_tag = document.createElement('p')
+        content_tag.appendChild(document.createTextNode(option.content));
+        div.appendChild(content_tag);
+        if(!flag.parentNode){
+            console.log("You need to initialize!");
+        }
+        flag.parentNode.appendChild(div);
       }
 
       if(!window.flag){

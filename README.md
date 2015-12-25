@@ -27,5 +27,5 @@ The MIT License (MIT) Copyright (c) 2015 hax0r
 # Contact
 if you have something, please contact me
 * Author : Hax0r('우영준')&humit0('장준호')
-* mail : a at hax0r.info or hacking4soju@gmail.com or jhjang1005@naver.com
+* mail : a at hax0r.info or jhjang1005@naver.com
 * Issue Reports : https://github.com/webhacking/flag/issues
