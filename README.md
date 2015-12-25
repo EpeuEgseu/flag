@@ -22,7 +22,7 @@ Refer to the [Flag website](http://flag.hax0r.info) for examples. check it.
 
 # License
 You are free to use this in any way you want, in case you find this useful or working for you but you must keep the copyright notice and license.
-The MIT License (MIT) Copyright (c) 2015 hax0r
+The MIT License (MIT)
 
 # Contact
 if you have something, please contact me
