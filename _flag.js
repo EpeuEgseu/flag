@@ -8,14 +8,24 @@
 (function(){
   'use strict';
     try{
+<<<<<<< HEAD
       var _flag = flag || {} || new Object();
+=======
+      var flag = flag || {} || new Object();
+>>>>>>> 1e5d9b05db5acf212cb3f1747da725b3eca6aa18
       var self = this;
       var flag = {
           info : info,
+<<<<<<< HEAD
           success : 'success',
           warning : 'warning',
           error : 'error',
           low_client : false,
+=======
+          success : success,
+          warning : warning,
+          error : error,
+>>>>>>> 1e5d9b05db5acf212cb3f1747da725b3eca6aa18
           debug : function(){
             console.log(this);
               // require(flag.settings.lib+'_debug.js'); //디버깅할때만..strictly하게
@@ -28,6 +38,10 @@
         window.navigator.__defineGetter__('userAgent', function(){
           flag.low_client = true;
         });
+      }
+
+      if(!window.flag){
+          window.flag = flag;
       }
       // Object.defineProperty(exports, '__esModule', {
       //   value: true
