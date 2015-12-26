@@ -134,7 +134,6 @@
         Extents();
         div.addEventListener('click',function(){
           removeNode(div,'kill');
-          console.log('test');
         });
         setTimeout(function(){
         },5000);// 5000 is default sec
