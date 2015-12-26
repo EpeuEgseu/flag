@@ -85,7 +85,7 @@
               break;
           }
         }
-      }
+      
       // type, content, title
       function createNode(option){
         if(!option.content){

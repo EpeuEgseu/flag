@@ -18,6 +18,8 @@
     #_flag>._flag_dom.success{background-color: #28BF34;border: 1px solid #6D6D6D}
     #_flag>._flag_dom.warning{background-color: #CA2D3B;border: 1px solid #6D6D6D}
     #_flag>._flag_dom.error{background-color: #617BDA;border: 1px solid #6D6D6D}
+    #_flag.flag_top-left>._flag_dorm{margin-left:0px;}
+    #_flag.flag_left>._flag_dorm{margin-left:0px;}
     #_flag.flag-center{top: 50%; left: 50%}
     #_flag.flag_top-right{top: 10px; right: 10px}
     #_flag.flag_top-left{top: 10px; left: 10px}
@@ -39,13 +41,21 @@
       #_flag>._flag_dom.is-small{width: 100px; margin-left: -50px}
       #_flag>._flag_dom.is-middle{width:200px;margin-left: -100px} /*사이즈 정의한 것 small,middle,big*/
       #_flag>._flag_dom.is-big{width: 266px; margin-left: -133px}
-
+    }
+    /* smart phone */
+    @media only screen and (max-width: 480px) {
+      #_flag>._flag_dom>h3{font-size: 20px; padding-bottom: 4px; margin: 0}
+      #_flag>._flag_dom>p{font-size: 12px; padding-top: 4px; border-top: 1px solid rgba(72, 72, 72, 0.2);letter-spacing: -1px;}
+      #_flag>._flag_dom.is-small{width: 100px; margin-left: -50px}
+      #_flag>._flag_dom.is-middle{width:200px;margin-left: -100px} /*사이즈 정의한 것 small,middle,big*/
+      #_flag>._flag_dom.is-big{width: 266px; margin-left: -140px}
       #_flag.flag-center{top: 50%; left: 50%}
       #_flag.flag_top-right{top: 5%; right: 5%}
       #_flag.flag_top-left{top: 5%; left: 5%}
       #_flag.flag_right{top: 50%;right:5%}
       #_flag.flag_left{top: 50%;left:5%} /*width 값이 300이 default라*/
     }
+    
     #_flag.flag_top-left>._flag_dom{margin-left:0px;}
     #_flag.flag_left>._flag_dom{margin-left:0px;}
     </style>
