@@ -15,6 +15,7 @@
           warning : warning,
           error : error,
           debug : function(){
+            console.log('debug mode');
             console.log(this);
               // require(flag.settings.lib+'_debug.js'); //디버깅할때만..strictly하게
           },

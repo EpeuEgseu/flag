@@ -6,6 +6,36 @@
         <link rel="stylesheet" href="_flag.css" /> <!--부트스트랩 CND이용-->
     </head>
     <style type="text/css">
+<<<<<<< HEAD
+    #_d {overflow: hidden; position:relative; min-height: 300px; max-height:300px; background-color: #333;border-bottom: 1px solid rgba(0, 0, 0, 0.65)}
+    #_d>.container{padding-top:100px;position: relative; z-index: 95}
+    #_d>.container *{color:#fff}
+    ._os {position: absolute; background-color: #000; width: 100%; height: 100%; opacity: .6;-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=60)"; /* IE 5-7 */ filter: alpha(opacity=60)}
+    .kr {overflow: hidden; position: absolute; right: 0; top: 0; left: 0; bottom: 0}
+    .kr>video.flag-demo-videos{height: auto; width: 100%; position: absolute}
+    .vm_box{position: relative; min-height: 500px; border: 1px solid #ccc; background-color: rgba(204, 204, 204, 0.08); margin-top: 10px}
+    .vm_box .op {padding:15px}
+    .vm_box .op-top{overflow: hidden; position: relative; padding: 15px 0px 15px 0px; min-height: 300px; border: 1px solid rgba(204, 204, 204, 0.33)}
+    .vm_box .op-bottom{overflow: hidden; position: relative; margin-top:10px;padding: 15px 0px 15px 0px; min-height: 30px; border: 1px solid rgba(204, 204, 204, 0.33)}
+
+    .footer{margin: 10px 0px 10px 0px}
+    </style>
+    <body>
+      <div id="_d">
+        <div class="kr duble combo">
+          <video controls="controls" autoplay="autoplay" loop="loop" class="flag-demo-videos">
+            <source src="/inc/video/mov_bbb.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="_os">
+        </div>
+        <div class="container">
+          <div class="row text-center">
+            <h1>Flag</h1>
+            <p class="description">
+              flag is Javascript library for non-blocking notifications
+            </p>
+=======
     #dos_dom {overflow: hidden; position:relative; min-height: 300px; max-height:300px; background-color: #333}
     #dos_dom>.container{padding-top:100px}
     #dos_dom h1{color:#fff}
@@ -23,6 +53,7 @@
         <div class="container">
           <div class="row text-center">
             <h1>Flag</h1>
+>>>>>>> 8bc2668f80e08055a42fda617c6097dd30addcb6
           </div>
         </div>
       </div>
@@ -34,19 +65,39 @@
          <p class="lead">
              check this library repo. here <a href="https://github.com/JangandWoo/flag" target="_blank">https://github.com/JangandWoo/flag</a>
          </p>
+         <div class="vm_box">
+          <div class="op">
+            <div class="op-top">
+              <div class="col-md-5">
+                <input type="text" placeholder="here your title">
+              </div>
+            </div>
+            <div class="op-bottom">
+              <div class="col-md-12">
+                <button type="button" id="run" class="btn btn-primary btn-block">Run!</button>
+              </div>
+            </div>
+          </div>
+         </div>
        </div>
        <footer class="footer">
          <div class="container">
-           <p class="text-muted">2015.12.24</p>
+           <p class="text-muted">2015.12.24 currently version is 0.1</p>
          </div>
        </footer>
         <script type="text/javascript" src="_flag.js"></script>
         <script type="text/javascript">
         //Test ground
         flag.success("Welcome to flag library demo page", "Welcome");
+<<<<<<< HEAD
+        document.getElementById('run').addEventListener('click',function(){
+          flag.success('awesome','ok');
+        });
+=======
         var vid = document.getElementById("myVideo");
         vid.autoplay = true;
         vid.load();
+>>>>>>> 8bc2668f80e08055a42fda617c6097dd30addcb6
         </script>
     </body>
 </html>
