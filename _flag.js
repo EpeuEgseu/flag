@@ -21,7 +21,7 @@
           init: initialize,
           low_client : false,
           no:0
-      }
+      };
       if(window.navigator.appName == 'Microsoft Internet Explorer' && window.attachEvent && !window.addEventListener){//익스8까지만 서포트
         flag.low_client = true;
       }
@@ -145,14 +145,10 @@
         return i;
       }
 
-      function Extents(){
-        var i = 'is1';
-        return i;
-      }
-
       if(!window.flag){
           window.flag = flag;
       }
+
     }catch(e){
         switch (true){
             case (e instanceof EvalError):
