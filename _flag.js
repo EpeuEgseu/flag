@@ -161,11 +161,3 @@
         }
     }
 })();
-
-flag.info("Content", "Title");
-flag.success();
-
-flag.success("Content", "Title");
-flag.info("Content", "Title");
-flag.success("Content", "Title");
-flag.success("Content", "Title");
