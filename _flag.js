@@ -147,6 +147,7 @@
       }
 
       function Extents(){
+        //상속받아서 리턴
       }
 
       if(!window.flag){

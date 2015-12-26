@@ -11,6 +11,8 @@
       <link rel="stylesheet" href="_flag.css" />
     </head>
     <style type="text/css">
+    body{opacity:0;transition: opacity .35s ease-in-out; -moz-transition: opacity .35s ease-in-out; -webkit-transition: opacity .35s ease-in-out}
+    body.loaded{opacity:1}
     .btn-outline {margin-top: 15px; margin-bottom: 15px; padding: 18px 24px; font-size: inherit; font-weight: 500; color: #fff; background-color: transparent; border-color: #fff; border-color: rgba(255,255,255,.5); transition: all .1s ease-in-out}
 
     #_d {overflow: hidden; position:relative; min-height: 300px; max-height:300px; background-color: #333;border-bottom: 1px solid rgba(0, 0, 0, 0.65)}
@@ -172,10 +174,10 @@
               flag is Javascript library for non-blocking notifications. very coool and fast!
             </p>
             <p>
-              <a class="btn btn-outline btn-lg" href="https://github.com/JangandWoo/flag">
-          <span class="fa fa-github"></span>
-          View on GitHub
-        </a>
+              <a class="btn btn-outline btn-lg" target="_blank" href="https://github.com/JangandWoo/flag">
+                <span class="fa fa-github"></span>
+                View on GitHub
+              </a>
             </p>
           </div>
         </div>
@@ -341,7 +343,11 @@
           }
           return retnode;
         };
-
+        document.addEventListener('DOMContentLoaded', function() {
+          setTimeout(function(){
+            document.getElementsByTagName('body')[0].className = 'loaded';//돔트리구성
+          },300)
+        });
         //Test ground
         flag.init('top-right');
         flag.success("Welcome to flag library demo page", "Welcome");
