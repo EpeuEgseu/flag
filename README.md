@@ -10,7 +10,7 @@ Refer to the [Flag website](http://flag.hax0r.info) for examples. check it.
 
 # Features
 * fast
-* support ie7+
+* support ie8+
 * simple design
 * many options and methods support
 
