@@ -14,10 +14,10 @@
     #_flag>._flag_dom.is-small{width: 150px; margin-left: -75px}
     #_flag>._flag_dom.is-middle{width:300px;margin-left: -150px} /*사이즈 정의한 것 small,middle,big*/
     #_flag>._flag_dom.is-big{width: 400px; margin-left: -200px}
-    #_flag>._flag_dom.info{background-color: #2B93DE;border: 1px solid #6D6D6D}
-    #_flag>._flag_dom.success{background-color: #28BF34;border: 1px solid #6D6D6D}
-    #_flag>._flag_dom.warning{background-color: #CA2D3B;border: 1px solid #6D6D6D}
-    #_flag>._flag_dom.error{background-color: #617BDA;border: 1px solid #6D6D6D}
+    #_flag>._flag_dom.info{background-color: #2B93DE;border: 1px solid #03A9F4} /* color pattern at http://www.google.co.kr/design/spec/style/color.html#color-color-palette*/
+    #_flag>._flag_dom.success{background-color: #28BF34;border: 1px solid #4CAF50}
+    #_flag>._flag_dom.warning{background-color: #CA2D3B;border: 1px solid #F44336}
+    #_flag>._flag_dom.error{background-color: #617BDA;border: 1px solid #3F51B5}
     #_flag.flag_top-left>._flag_dorm{margin-left:0px;}
     #_flag.flag_left>._flag_dorm{margin-left:0px;}
     #_flag.flag-center{top: 50%; left: 50%}
@@ -25,33 +25,31 @@
     #_flag.flag_top-left{top: 10px; left: 10px}
     #_flag.flag_right{top: 50%;right:10px}
     #_flag.flag_left{top: 50%;left:10px} /*width 값이 300이 default라*/
-    
+
     /* Tablet */
     @media only screen and (max-width: 780px) {
       #_flag>._flag_dom>h3{font-size: 21px;}
       #_flag>._flag_dom>p{font-size: 13px;}
-      #_flag>._flag_dom.is-small{width: 120px; margin-left: -75px}
-      #_flag>._flag_dom.is-middle{width:240px;margin-left: -150px} /*사이즈 정의한 것 small,middle,big*/
-      #_flag>._flag_dom.is-big{width: 320px; margin-left: -200px}
-      #_flag.flag-center{top: 50%; left: 50%}
-      #_flag.flag_top-right{top: 10px; right: 10px}
-      #_flag.flag_top-left{top: 10px; left: 10px}
-      #_flag.flag_right{top: 50%;right:10px}
-      #_flag.flag_left{top: 50%;left:10px} /*width 값이 300이 default라*/
+      #_flag>._flag_dom.is-small{width: 120px; margin-left: -60px}
+      #_flag>._flag_dom.is-middle{width:240px;margin-left: -120px} /*사이즈 정의한 것 small,middle,big*/
+      #_flag>._flag_dom.is-big{width: 320px; margin-left: -160px}
     }
     /* smart phone */
     @media only screen and (max-width: 480px) {
-      #_flag>._flag_dom>h3{font-size: 20px; padding-bottom: 4px; margin: 0}
-      #_flag>._flag_dom>p{font-size: 12px; padding-top: 4px; border-top: 1px solid rgba(72, 72, 72, 0.2);letter-spacing: -1px;}
+      #_flag>._flag_dom>h3{font-size: 20px;}
+      #_flag>._flag_dom>p{font-size: 12px;}
       #_flag>._flag_dom.is-small{width: 100px; margin-left: -50px}
       #_flag>._flag_dom.is-middle{width:200px;margin-left: -100px} /*사이즈 정의한 것 small,middle,big*/
-      #_flag>._flag_dom.is-big{width: 266px; margin-left: -140px}
+      #_flag>._flag_dom.is-big{width: 266px; margin-left: -133px}
       #_flag.flag-center{top: 50%; left: 50%}
       #_flag.flag_top-right{top: 5%; right: 5%}
       #_flag.flag_top-left{top: 5%; left: 5%}
       #_flag.flag_right{top: 50%;right:5%}
       #_flag.flag_left{top: 50%;left:5%} /*width 값이 300이 default라*/
     }
+
+    #_flag.flag_top-left>._flag_dom{margin-left:0px;}
+    #_flag.flag_left>._flag_dom{margin-left:0px;}
     </style>
     <body>
         <div class="container">
@@ -60,7 +58,7 @@
          </div>
          <p class="lead">flag is Javascript library for non-blocking notifications. this plugin don't need to jquery library</p>
          <p class="lead">
-             check this library repo. here <a href="https://github.com/webhacking/flag">https://github.com/webhacking/flag</a>
+             check this library repo. here <a href="https://github.com/JangandWoo/flag" target="_blank">https://github.com/JangandWoo/flag</a>
          </p>
        </div>
        <footer class="footer">
@@ -68,38 +66,13 @@
            <p class="text-muted">2015.12.24</p>
          </div>
        </footer>
-
-       <div id="_flag" class="flag_top-right">
-         <div class="_flag_dom is-middle success">
-           <h3>Title</h3>
-           <p>
-             here your message
-           </p>
-         </div>
-       </div>
-       <div id="_flag" class="flag_top-left">
-         <div class="_flag_dom is-middle info">
-           <h3>Title</h3>
-           <p>
-             here your message
-           </p>
-         </div>
-       </div>
-       <div id="_flag" class="flag-center">
-         <div class="_flag_dom is-middle info">
-           <h3>Title</h3>
-           <p>
-             here your message
-           </p>
-         </div>
-       </div>
-
         <script type="text/javascript" src="_flag.js"></script>
         <script type="text/javascript">
         //Test ground
-        //flag.info("Content", "Title");
-        //flag.info("Content2", "Title2");
-        //flag.info("Content3", "Title3");
+        flag.info("Content", "Info");
+        flag.warning("Content2", "Warning");
+        flag.success("Content3", "Success");
+        flag.error("Content3", "Error");
         </script>
     </body>
 </html>

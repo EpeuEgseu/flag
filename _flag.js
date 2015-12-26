@@ -22,10 +22,9 @@
           no:0
       }
       if(window.navigator.appName == 'Microsoft Internet Explorer' && window.attachEvent && !window.addEventListener){//익스8까지만 서포트
-        window.navigator.__defineGetter__('userAgent', function(){
-          flag.low_client = true;
-        });
+        flag.low_client = true;
       }
+
       function initialize(position){
         if(!flag.parentNode){
             if(!position){
@@ -60,7 +59,35 @@
         console.log('is error');
         createNode({type:'error', content:content, title:title, size:'is-middle'});
       }
-
+      var removeNode = function(_node,effect){
+        console.debug(_node);
+        // var _node = _node.parentNode;
+        if(!effect){
+          effect = 'fade-out';
+        }
+        if(_node){
+          switch (effect) {
+            case 'kill': _node.parentNode.removeChild(_node);
+              break;
+            case 'fade-out':
+              var op = 1;
+              var timer = setInterval(function () {
+                  if (op <= 0.1){
+                      console.log(timer+'싀싀시ㅡ븨');
+                      clearInterval(timer);
+                      // _node.style.display = 'none';
+                      _node.parentNode.removeChild(_node);
+                  }
+                  _node.style.opacity = op;
+                  if(flag.low_client){
+                    _node.style.filter = 'alpha(opacity=' + op * 100 + ")";
+                  }
+                  op -= op * 0.1;
+              }, 50);
+              break;
+          }
+        }
+      }
       // type, content, title
       function createNode(option){
         if(!option.content){
@@ -79,12 +106,17 @@
               break;
           }
         }
-
+        if(!option.size){
+          option.size = 'is-middle';
+        }
         var div = document.createElement('div');
         var attr = document.createAttribute('class');
         attr.value = '_flag_dom '+option.type+' '+option.size;
         div.setAttributeNode(attr);
+        attr = document.createAttribute('role');
+        attr.value = 'alert';
         attr = document.createAttribute('data-flag-index');
+
         attr.value = ++flag.no;
         div.setAttributeNode(attr);
 
@@ -99,13 +131,22 @@
             console.log("You need to initialize!");
         }
         flag.parentNode.appendChild(div);
+        Extents();
+        div.addEventListener('click',function(){
+          removeNode(div,'kill');
+          console.log('test');
+        });
+        setTimeout(function(){
+        },5000);// 5000 is default sec
+      }
+
+      function Extents(){
+        var i = 'is1';
+        return i;
       }
 
       if(!window.flag){
           window.flag = flag;
-      }
-      if(!window.flag){
-        window.flag = flag;
       }
     }catch(e){
         switch (true){
