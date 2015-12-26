@@ -15,6 +15,11 @@ Refer to the [Flag website](http://flag.hax0r.info) for examples. check it.
 * many options and methods support
 
 # How to use
+If you want to use __*flag*__, you need to load javascript & css file.
+```html
+<link rel="stylesheet" href="_flag.css">
+<script type="text/javascript" src="_flag.js"></script>
+```
 Before using this function, you need to set position. If you don't initialize position, then flags are located in top-right of your screen.
 ```js
 flag.init(); // default position is top-right.
