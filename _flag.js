@@ -18,6 +18,7 @@
             console.log(this);
               // require(flag.settings.lib+'_debug.js'); //디버깅할때만..strictly하게
           },
+          init: initialize,
           low_client : false,
           no:0
       }
@@ -41,7 +42,6 @@
             flag.parentNode = _parent;
         }
       }
-      initialize();
 
       function info(content, title){
         console.log('is info');
@@ -128,7 +128,7 @@
         content_tag.appendChild(document.createTextNode(option.content));
         div.appendChild(content_tag);
         if(!flag.parentNode){
-            console.log("You need to initialize!");
+          initialize();
         }
         flag.parentNode.appendChild(div);
         Extents();
