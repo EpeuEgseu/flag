@@ -4,7 +4,6 @@
 * flag is Javascript library for non-blocking notifications. this plugin don't need to jquery library
 *if you have someting, please contact this email here('hacking4soju at gmail.com' or 'jhjang1005@naver.com')
 */
-
 (function(){
   'use strict';
     try{
@@ -21,6 +20,11 @@
           },
           low_client : false,
           no:0
+      }
+      if(window.navigator.appName == 'Microsoft Internet Explorer' && window.attachEvent && !window.addEventListener){//익스8까지만 서포트
+        window.navigator.__defineGetter__('userAgent', function(){
+          flag.low_client = true;
+        });
       }
       function initialize(position){
         if(!flag.parentNode){
@@ -44,34 +48,50 @@
         console.log('is info');
         createNode({type:'info', content:content, title:title, size:'is-middle'});
       }
-      function success(){
+      function success(content, title){
         console.log('is success');
+        createNode({type:'success', content:content, title:title, size:'is-middle'});
       }
-      function warning(){
+      function warning(content, title){
         console.log('is warning');
+        createNode({type:'warning', content:content, title:title, size:'is-middle'});
       }
-      function error(){
+      function error(content, title){
         console.log('is error');
+        createNode({type:'error', content:content, title:title, size:'is-middle'});
       }
-      if(window.navigator.appName == 'Microsoft Internet Explorer' && window.attachEvent && !window.addEventListener){//익스8까지만 서포트
-        window.navigator.__defineGetter__('userAgent', function(){
-          flag.low_client = true;
-        });
-      }
+
       // type, content, title
       function createNode(option){
+        if(!option.content){
+          option.content = 'display default message';
+        }
+        if(!option.title){
+          // console.log('yes i"m here');
+          switch (option.type) {
+            case 'info': option.title = 'Info';
+              break;
+            case 'success': option.title = 'Success';
+              break;
+            case 'warning': option.title = 'Warning';
+              break;
+            case 'error' : option.title = 'Error'
+              break;
+          }
+        }
+
         var div = document.createElement('div');
         var attr = document.createAttribute('class');
         attr.value = '_flag_dom '+option.type+' '+option.size;
         div.setAttributeNode(attr);
-        attr = document.createAttribute('id');
+        attr = document.createAttribute('data-flag-index');
         attr.value = ++flag.no;
         div.setAttributeNode(attr);
 
         var title_tag = document.createElement('h3');
         title_tag.appendChild(document.createTextNode(option.title));
         div.appendChild(title_tag);
-        
+
         var content_tag = document.createElement('p')
         content_tag.appendChild(document.createTextNode(option.content));
         div.appendChild(content_tag);
@@ -84,26 +104,28 @@
       if(!window.flag){
           window.flag = flag;
       }
-      // Object.defineProperty(exports, '__esModule', {
-      //   value: true
-      // });
-      // exports['default'] = flag = function(){
-      //
-      // }
       if(!window.flag){
         window.flag = flag;
       }
     }catch(e){
         switch (true){
             case (e instanceof EvalError):
-                alert("Eval 에러: " + e.message);
+              console.log("Eval 에러: " + e.message);
                 break;
             case (e instanceof RangeError):
-                alert("RangeError에러: " + e.message);
+              console.log("RangeError 에러: " + e.message);
                 break;
             default:
-                alert("에러: " + e.message);
+              console.log("에러: " + e.message);
                 break;
         }
     }
 })();
+
+flag.info("Content", "Title");
+flag.success();
+
+flag.success("Content", "Title");
+flag.info("Content", "Title");
+flag.success("Content", "Title");
+flag.success("Content", "Title");
