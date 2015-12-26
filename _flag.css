@@ -43,6 +43,7 @@
 
 #_flag.flag_top-left>._flag_dom{margin-left:0px;}
 #_flag.flag_left>._flag_dom{margin-left:0px;}
+<<<<<<< HEAD
 
 /*
 * We Animations effect !
@@ -74,3 +75,5 @@
 100% {
   transform: scale(1);
   -webkit-transform: scale(1); } }
+=======
+>>>>>>> a2892039bbb0920d725d215cc06b57c95891c237

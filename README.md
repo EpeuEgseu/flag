@@ -3,18 +3,23 @@
 
 Refer to the [Flag website](http://flag.hax0r.info) for examples. check it.
 
-![simple flag pic](http://www.flagsforlessonline.com/images/message-flag-header.jpg)
+![simple flag pic](https://cloud.githubusercontent.com/assets/10232178/12007458/b35b4552-ac48-11e5-9cc7-216e447c9490.gif)
 
 # Current Version
 0.1
 
 # Features
 * fast
-* support ie8+
+* support ie7+
 * simple design
 * many options and methods support
 
 # How to use
+If you want to use __*flag*__, you need to load javascript & css file.
+```html
+<link rel="stylesheet" href="_flag.css">
+<script type="text/javascript" src="_flag.js"></script>
+```
 Before using this function, you need to set position. If you don't initialize position, then flags are located in top-right of your screen.
 ```js
 flag.init(); // default position is top-right.
