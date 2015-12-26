@@ -145,6 +145,11 @@
         return i;
       }
 
+      function Extents(){
+        var i = 'is1';
+        return i;
+      }
+
       if(!window.flag){
           window.flag = flag;
       }
