@@ -136,6 +136,7 @@
           removeNode(div,'kill');
         });
         setTimeout(function(){
+          removeNode(div);
         },5000);// 5000 is default sec
       }
 
