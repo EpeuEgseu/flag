@@ -15,10 +15,17 @@ Refer to the [Flag website](http://flag.hax0r.info) for examples. check it.
 * many options and methods support
 
 # how it works
+## Initialize position
+```js
+flag.init(); // default position is top-right.
+
+```
 
 # Options
 
+
 # Callbacks& Methods
+
 
 # License
 You are free to use this in any way you want, in case you find this useful or working for you but you must keep the copyright notice and license.

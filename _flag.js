@@ -29,8 +29,9 @@
       function initialize(position){
         if(!flag.parentNode){
             if(!position){
-                position='flag_top-right';
+                position='top-right';
             }
+            position = 'flag_'+position;
             var _parent = document.createElement('div');
             var attr = document.createAttribute('id');
             attr.value = '_flag';
@@ -43,23 +44,19 @@
         }
       }
 
-      function info(content, title){
-        console.log('is info');
-        createNode({type:'info', content:content, title:title, size:'is-middle'});
+      function info(content, title, size){
+        createNode({type:'info', content:content, title:title, size:size});
       }
-      function success(content, title){
-        console.log('is success');
-        createNode({type:'success', content:content, title:title, size:'is-middle'});
+      function success(content, title, size){
+        createNode({type:'success', content:content, title:title, size:size});
       }
-      function warning(content, title){
-        console.log('is warning');
-        createNode({type:'warning', content:content, title:title, size:'is-middle'});
+      function warning(content, title, size){
+        createNode({type:'warning', content:content, title:title, size:size});
       }
-      function error(content, title){
-        console.log('is error');
-        createNode({type:'error', content:content, title:title, size:'is-middle'});
+      function error(content, title, size){
+        createNode({type:'error', content:content, title:title, size:size});
       }
-      var removeNode = function(_node,effect){
+      var removeNode = function(_node,effect, timeout_event){
         console.debug(_node);
         // var _node = _node.parentNode;
         if(!effect){
@@ -67,13 +64,16 @@
         }
         if(_node){
           switch (effect) {
-            case 'kill': _node.parentNode.removeChild(_node);
+            case 'kill':
+              if(timeout_event){
+                clearTimeout(timeout_event);
+              }
+              _node.parentNode.removeChild(_node);
               break;
             case 'fade-out':
               var op = 1;
               var timer = setInterval(function () {
                   if (op <= 0.1){
-                      console.log(timer+'싀싀시ㅡ븨');
                       clearInterval(timer);
                       // _node.style.display = 'none';
                       _node.parentNode.removeChild(_node);
@@ -94,7 +94,6 @@
           option.content = 'display default message';
         }
         if(!option.title){
-          // console.log('yes i"m here');
           switch (option.type) {
             case 'info': option.title = 'Info';
               break;
@@ -107,8 +106,9 @@
           }
         }
         if(!option.size){
-          option.size = 'is-middle';
+          option.size = 'middle';
         }
+        option.size = 'is-'+option.size;
         var div = document.createElement('div');
         var attr = document.createAttribute('class');
         attr.value = '_flag_dom '+option.type+' '+option.size;
@@ -132,12 +132,12 @@
         }
         flag.parentNode.appendChild(div);
         Extents();
-        div.addEventListener('click',function(){
-          removeNode(div,'kill');
-        });
-        setTimeout(function(){
+        var removeEvent = setTimeout(function(){
           removeNode(div);
         },5000);// 5000 is default sec
+        div.addEventListener('click',function(){
+          removeNode(div, 'kill', removeEvent);
+        });
       }
 
       function Extents(){

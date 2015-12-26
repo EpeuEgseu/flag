@@ -13,7 +13,7 @@
 #_flag>._flag_dom.error{background-color: #617BDA;border: 1px solid #3F51B5}
 #_flag.flag_top-left>._flag_dorm{margin-left:0px;}
 #_flag.flag_left>._flag_dorm{margin-left:0px;}
-#_flag.flag-center{top: 50%; left: 50%}
+#_flag.flag_center{top: 50%; left: 50%}
 #_flag.flag_top-right{top: 10px; right: 10px}
 #_flag.flag_top-left{top: 10px; left: 10px}
 #_flag.flag_right{top: 50%;right:10px}
@@ -34,7 +34,7 @@
   #_flag>._flag_dom.is-small{width: 100px; margin-left: -50px}
   #_flag>._flag_dom.is-middle{width:200px;margin-left: -100px} /*사이즈 정의한 것 small,middle,big*/
   #_flag>._flag_dom.is-big{width: 266px; margin-left: -133px}
-  #_flag.flag-center{top: 50%; left: 50%}
+  #_flag.flag_center{top: 50%; left: 50%}
   #_flag.flag_top-right{top: 5%; right: 5%}
   #_flag.flag_top-left{top: 5%; left: 5%}
   #_flag.flag_right{top: 50%;right:5%}
