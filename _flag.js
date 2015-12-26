@@ -18,17 +18,20 @@
             console.log(this);
               // require(flag.settings.lib+'_debug.js'); //디버깅할때만..strictly하게
           },
+          init: initialize,
           low_client : false,
           no:0
       }
       if(window.navigator.appName == 'Microsoft Internet Explorer' && window.attachEvent && !window.addEventListener){//익스8까지만 서포트
         flag.low_client = true;
       }
+
       function initialize(position){
         if(!flag.parentNode){
             if(!position){
-                position='flag_top-right';
+                position='top-right';
             }
+            position = 'flag_'+position;
             var _parent = document.createElement('div');
             var attr = document.createAttribute('id');
             attr.value = '_flag';
@@ -40,26 +43,20 @@
             flag.parentNode = _parent;
         }
       }
-      initialize();
 
-      function info(content, title){
-        console.log('is info');
-        createNode({type:'info', content:content, title:title, size:'is-middle'});
+      function info(content, title, size){
+        createNode({type:'info', content:content, title:title, size:size});
       }
-      function success(content, title){
-        console.log('is success');
-        createNode({type:'success', content:content, title:title, size:'is-middle'});
+      function success(content, title, size){
+        createNode({type:'success', content:content, title:title, size:size});
       }
-      function warning(content, title){
-        console.log('is warning');
-        createNode({type:'warning', content:content, title:title, size:'is-middle'});
+      function warning(content, title, size){
+        createNode({type:'warning', content:content, title:title, size:size});
       }
-      function error(content, title){
-        console.log('is error');
-        createNode({type:'error', content:content, title:title, size:'is-middle'});
+      function error(content, title, size){
+        createNode({type:'error', content:content, title:title, size:size});
       }
-
-      var removeNode = function(_node,effect){
+      var removeNode = function(_node,effect, timeout_event){
         console.debug(_node);
         // var _node = _node.parentNode;
         if(!effect){
@@ -67,11 +64,16 @@
         }
         if(_node){
           switch (effect) {
+            case 'kill':
+              if(timeout_event){
+                clearTimeout(timeout_event);
+              }
+              _node.parentNode.removeChild(_node);
+              break;
             case 'fade-out':
               var op = 1;
               var timer = setInterval(function () {
                   if (op <= 0.1){
-                      console.log(timer+'싀싀시ㅡ븨');
                       clearInterval(timer);
                       // _node.style.display = 'none';
                       _node.parentNode.removeChild(_node);
@@ -85,14 +87,13 @@
               break;
           }
         }
-      
+      }
       // type, content, title
       function createNode(option){
         if(!option.content){
           option.content = 'display default message';
         }
         if(!option.title){
-          // console.log('yes i"m here');
           switch (option.type) {
             case 'info': option.title = 'Info';
               break;
@@ -105,13 +106,17 @@
           }
         }
         if(!option.size){
-          option.size = 'is-middle';
+          option.size = 'middle';
         }
+        option.size = 'is-'+option.size;
         var div = document.createElement('div');
         var attr = document.createAttribute('class');
         attr.value = '_flag_dom '+option.type+' '+option.size;
         div.setAttributeNode(attr);
+        attr = document.createAttribute('role');
+        attr.value = 'alert';
         attr = document.createAttribute('data-flag-index');
+
         attr.value = ++flag.no;
         div.setAttributeNode(attr);
 
@@ -123,12 +128,21 @@
         content_tag.appendChild(document.createTextNode(option.content));
         div.appendChild(content_tag);
         if(!flag.parentNode){
-            console.log("You need to initialize!");
+          initialize();
         }
         flag.parentNode.appendChild(div);
-        setTimeout(function(){
+        Extents();
+        var removeEvent = setTimeout(function(){
           removeNode(div);
         },5000);// 5000 is default sec
+        div.addEventListener('click',function(){
+          removeNode(div, 'kill', removeEvent);
+        });
+      }
+
+      function Extents(){
+        var i = 'is1';
+        return i;
       }
 
       if(!window.flag){
@@ -148,11 +162,3 @@
         }
     }
 })();
-
-flag.info("Content", "Title");
-flag.success();
-
-flag.success("Content", "Title");
-flag.info("Content", "Title");
-flag.success("Content", "Title");
-flag.success("Content", "Title");
