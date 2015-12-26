@@ -13,6 +13,7 @@ Refer to the [Flag website](http://flag.hax0r.info) for examples. check it.
 * support ie7+
 * simple design
 * many options and methods support
+* Lightweight, no dependencies
 
 # How to use
 If you want to use __*flag*__, you need to load javascript & css file.
