@@ -50,6 +50,9 @@
       }
       var removeNode = function(_node,effect, timeout_event){
         var MAMA_node = _node.parentNode;
+        if(MAMA_node==null){ // 에러처리. 이미 삭제된 node에 대해서는 삭제를 하지 않는다.
+          return;
+        }
         if(!effect){
           effect = 'fade-out';
         }
@@ -93,6 +96,11 @@
       }
       function clean(){
         // removeNode(document.getElementById('_flag'));
+        var c = flag.parentNode.childNodes;
+        var len = c.length;
+        for(var i=0; i<len; i++){
+          flag.parentNode.removeChild(c[0]);
+        }
       }
       // type, content, title
       function createNode(option){
