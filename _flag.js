@@ -14,6 +14,9 @@
           success : success,
           warning : warning,
           error : error,
+          clean : clean,
+          options : {}, //빈 배열
+          version : '.1',
           debug : function(){
             console.log('debug mode');
             console.log(this);
@@ -45,22 +48,8 @@
             flag.parentNode = _parent;
         }
       }
-
-      function info(content, title, size){
-        createNode({type:'info', content:content, title:title, size:size});
-      }
-      function success(content, title, size){
-        createNode({type:'success', content:content, title:title, size:size});
-      }
-      function warning(content, title, size){
-        createNode({type:'warning', content:content, title:title, size:size});
-      }
-      function error(content, title, size){
-        createNode({type:'error', content:content, title:title, size:size});
-      }
       var removeNode = function(_node,effect, timeout_event){
-        console.debug(_node);
-        // var _node = _node.parentNode;
+        var MAMA_node = _node.parentNode;
         if(!effect){
           effect = 'fade-out';
         }
@@ -90,6 +79,21 @@
           }
         }
       }
+      function info(content, title, size){
+        createNode({type:'info', content:content, title:title, size:size});
+      }
+      function success(content, title, size){
+        createNode({type:'success', content:content, title:title, size:size});
+      }
+      function warning(content, title, size){
+        createNode({type:'warning', content:content, title:title, size:size});
+      }
+      function error(content, title, size){
+        createNode({type:'error', content:content, title:title, size:size});
+      }
+      function clean(){
+        // removeNode(document.getElementById('_flag'));
+      }
       // type, content, title
       function createNode(option){
         if(!option.content){
@@ -111,6 +115,7 @@
           option.size = 'middle';
         }
         option.size = 'is-'+option.size;
+        var ExtentsOption = Extents();
         var div = document.createElement('div');
         var attr = document.createAttribute('class');
         attr.value = '_flag_dom '+option.type+' '+option.size;
@@ -136,7 +141,7 @@
         Extents();
         var removeEvent = setTimeout(function(){
           removeNode(div);
-        },5000);// 5000 is default sec
+        },5000);// 5 is default sec
         div.addEventListener('click',function(){
           removeNode(div, 'kill', removeEvent);
         });
@@ -154,8 +159,7 @@
       }
 
       function Extents(){
-        var i = 'is1';
-        return i;
+        //상속받아서 리턴
       }
 
       if(!window.flag){
