@@ -26,6 +26,10 @@ Before using this function, you need to set position. If you don't initialize po
 flag.init(); // default position is top-right.
 flag.init('right'); // set flag position right.
 ```
+If you want to change position after you call `flag.init()`, use `flag.setPos()` function.
+```js
+flag.setPos('center'); // set flag position center.
+```
 After you set position, you can make __*flag*__ by using under 4 methods with *message*, *title*, *size* parameter.
 ```js
 flag.info('Info message.', 'info', 'middle'); // info type
@@ -33,7 +37,10 @@ flag.success('Success message.', 'success', 'big'); // success type
 flag.warning('Warning message.', 'warning', 'small'); // warning type
 flag.error('Error message.', 'error'); // error type
 ```
-__*flag*__ will remove in 5 seconds. If you want to remove it immediately, just click __*flag*__ which you want to remove.
+__*flag*__ will remove in 5 seconds. If you want to remove it immediately, just click __*flag*__ which you want to remove. You can remove all __*flag*__ by calling `flag.clean()`.
+```js
+flag.clean(); // clear all flags.
+```
 
 # Options
 * Choose the flag position & size.
@@ -48,6 +55,13 @@ flag.init(); // default position is top-right.
 flag.init('top-left');
 ```
 We provide 5 positions(`top-left`, `top-right`, `left`, `right`, `center`) to initialize. If you don't pass any *position* parameter on this function, then it works like `top-right` option.
+
+## Change flag position
+```js
+//flag.setPos({position});
+flag.setPos('center');
+```
+We provide 5 positions(`top-left`, `top-right`, `left`, `right`, `center`) to set flag position.
 
 ## Make flag
 There are 4 types(`info`, `success`, `warning`, `error`) to make flag. You can pass 3 parameters at most, and ignore `title`, or `size` parameters. `size` parameter can be 3 options(`big`, `middle`, `small`) and default value is `middle`.
@@ -86,6 +100,12 @@ flag.error('Error message.', 'error');
 flag.error('Error message.');
 ```
 If you ignore `title`, then `title` would be set '*Error*'.
+
+## Remove all flags
+```js
+flag.clean();
+```
+You can remove all flags in your website.
 
 # License
 You are free to use this in any way you want, in case you find this useful or working for you but you must keep the copyright notice and license.
