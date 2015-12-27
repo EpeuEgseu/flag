@@ -20,6 +20,7 @@
               // require(flag.settings.lib+'_debug.js'); //디버깅할때만..strictly하게
           },
           init: initialize,
+          setPos: changePosition,
           low_client : false,
           no:0
       };
@@ -139,6 +140,17 @@
         div.addEventListener('click',function(){
           removeNode(div, 'kill', removeEvent);
         });
+      }
+
+      function changePosition(position){
+        if(!flag.parentNode){
+          initialize(position);
+        } else {
+          if(!position){
+            position='top-right';
+          }
+          flag.parentNode.getAttributeNode('class').value = 'flag_'+position;
+        }
       }
 
       function Extents(){
