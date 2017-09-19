@@ -1,0 +1,75 @@
+#_flag {position: fixed; z-index: 99999; background-blend-mode: initial;pointer-events: auto}
+#_flag>._flag_dom{overflow:hidden;position:relative;margin-bottom: 5px;padding:10px;color:#fff;border-radius: 6px;opacity: .8; -ms-filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=80); filter: alpha(opacity=80);-webkit-transition: all 500ms ease-in-out; -moz-transition: all 500ms ease-in-out; -o-transition: all 500ms ease-in-out; transition: all 500ms ease-in-out;text-shadow: 2px 2px 3px rgba(68, 68, 68, 0.8)}
+#_flag>._flag_dom{-moz-box-shadow: 0 0 12px #333; -webkit-box-shadow: 0 0 12px #333; box-shadow: 0 0 12px #333;-webkit-animation: _flagDefault 0.3s; animation: _flagDefault 0.3s;}
+#_flag>._flag_dom:hover{opacity: 1; -ms-filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100); filter: alpha(opacity=100)}
+#_flag>._flag_dom>h3{font-size: 22px; padding-bottom: 4px; margin: 0}
+#_flag>._flag_dom>p{font-size: 14px; padding-top: 4px; border-top: 1px solid rgba(72, 72, 72, 0.2);letter-spacing: -1px;}
+#_flag>._flag_dom.is-small{width: 150px; margin-left: -75px}
+#_flag>._flag_dom.is-middle{width:300px;margin-left: -150px} /*사이즈 정의한 것 small,middle,big*/
+#_flag>._flag_dom.is-big{width: 400px; margin-left: -200px}
+#_flag>._flag_dom.info{background-color: #2B93DE;border: 1px solid #03A9F4} /* color pattern at http://www.google.co.kr/design/spec/style/color.html#color-color-palette*/
+#_flag>._flag_dom.success{background-color: #28BF34;border: 1px solid #4CAF50}
+#_flag>._flag_dom.warning{background-color: #CA2D3B;border: 1px solid #F44336}
+#_flag>._flag_dom.error{background-color: #617BDA;border: 1px solid #3F51B5}
+#_flag.flag_top-left>._flag_dorm{margin-left:0px;}
+#_flag.flag_left>._flag_dorm{margin-left:0px;}
+#_flag.flag_center{top: 50%; left: 50%}
+#_flag.flag_top-right{top: 10px; right: 10px}
+#_flag.flag_top-left{top: 10px; left: 10px}
+#_flag.flag_right{top: 50%;right:10px}
+#_flag.flag_left{top: 50%;left:10px} /*width 값이 300이 default라*/
+
+/* Tablet */
+@media only screen and (max-width: 780px) {
+  #_flag>._flag_dom>h3{font-size: 21px;}
+  #_flag>._flag_dom>p{font-size: 13px;}
+  #_flag>._flag_dom.is-small{width: 120px; margin-left: -60px}
+  #_flag>._flag_dom.is-middle{width:240px;margin-left: -120px} /*사이즈 정의한 것 small,middle,big*/
+  #_flag>._flag_dom.is-big{width: 320px; margin-left: -160px}
+}
+/* smart phone */
+@media only screen and (max-width: 480px) {
+  #_flag>._flag_dom>h3{font-size: 20px;}
+  #_flag>._flag_dom>p{font-size: 12px;}
+  #_flag>._flag_dom.is-small{width: 100px; margin-left: -50px}
+  #_flag>._flag_dom.is-middle{width:200px;margin-left: -100px} /*사이즈 정의한 것 small,middle,big*/
+  #_flag>._flag_dom.is-big{width: 266px; margin-left: -133px}
+  #_flag.flag_center{top: 50%; left: 50%}
+  #_flag.flag_top-right{top: 5%; right: 5%}
+  #_flag.flag_top-left{top: 5%; left: 5%}
+  #_flag.flag_right{top: 50%;right:5%}
+  #_flag.flag_left{top: 50%;left:5%} /*width 값이 300이 default라*/
+}
+
+#_flag.flag_top-left>._flag_dom{margin-left:0px;}
+#_flag.flag_left>._flag_dom{margin-left:0px;}
+/*
+* We Animations effect !
+*/
+@-webkit-keyframes _flagDefault {
+0% {
+  transform: scale(0.7);
+  -webkit-transform: scale(0.7); }
+45% {
+  transform: scale(1.05);
+  -webkit-transform: scale(1.05); }
+80% {
+  transform: scale(0.95);
+  -webkit-transform: scale(0.95); }
+100% {
+  transform: scale(1);
+  -webkit-transform: scale(1); } }
+
+@keyframes _flagDefault {
+0% {
+  transform: scale(0.7);
+  -webkit-transform: scale(0.7); }
+45% {
+  transform: scale(1.05);
+  -webkit-transform: scale(1.05); }
+80% {
+  transform: scale(0.95);
+  -webkit-transform: scale(0.95); }
+100% {
+  transform: scale(1);
+  -webkit-transform: scale(1); } }
